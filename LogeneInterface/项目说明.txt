@@ -1,0 +1,14 @@
+LGI.Common:通用组件
+
+
+LGI.Core:核心文件,***非管理员禁止修改***
+	LGI.Core:PIS调用LGI的接口及常量定义.
+	LGI.Core.Net4ToNet2Adapter:让.net2.0 dll能调用.net4.0,主要是为了兼容LGInterface.dll的2.0版本.
+	LGI.Core.LGInterface:PIS以DLL调用接口的入口程序.
+	LGI.Core.PathGetHis_fz:PIS以EXE方式调用接口的入口程序.
+	LGI.Core.Model:朗珈内部实体,跟数据库保持一致
+	LGI.Core.DAL:对朗珈数据库的增删改查操作
+
+LGI.Hsp:各医院接口项目的具体实现(实现LGI.Core)
+		项目名请用中文全称,如:LGI.Hsp.广州中山大学附属第一医院
+		因为项目很多,不要放在根目录,新建项目请放在LGI.Hsp目录下.
