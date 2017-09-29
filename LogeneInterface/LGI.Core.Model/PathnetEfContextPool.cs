@@ -1,5 +1,7 @@
-﻿using System.Data.Entity.Core.EntityClient;
+﻿using System;
+using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
+using LGI.Core.Utils;
 
 namespace LGI.Core.Model
 {
@@ -14,6 +16,13 @@ namespace LGI.Core.Model
                 _db = PathnetEntities.ConnectToSqlServer("LDYXPS15", "pathnet", "pathnet", "4s3c2a1p", false);
                 //   _db.Database.Connection.ConnectionString = "Data Source=LDYXPS15;Initial Catalog=pathnet;User ID=pathnet;Password=4s3c2a1p";
             }
+
+            //logging
+            _db.Database.Log += log =>
+            {
+                Logger.Info($"[{DateTime.Now.ToString("u")}]linq to sql:\r\n{log}");
+                Console.WriteLine($"[{DateTime.Now.ToString("u")}]linq to sql:\r\n{log}");
+            };
 
             return _db;
         }
@@ -47,6 +56,7 @@ namespace LGI.Core.Model
                 ProviderConnectionString = sqlBuilder.ConnectionString,
                 Metadata = "res://*/",
             };
+
 
             return new PathnetEntities(entityConnectionStringBuilder.ConnectionString);
         }
