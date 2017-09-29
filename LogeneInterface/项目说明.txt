@@ -8,6 +8,7 @@ LGI.Core:核心文件,***非管理员禁止修改***
 	LGI.Core.PathGetHis_fz:PIS以EXE方式调用接口的入口程序.
 	LGI.Core.Model:朗珈内部实体,跟数据库保持一致
 	LGI.Core.DAL:对朗珈数据库的增删改查操作
+	LGI.Core.Utils:核心的公共类,包括log,配置读取等方法
 
 LGI.Hsp:各医院接口项目的具体实现(实现LGI.Core)
 		项目名请用中文全称,如:LGI.Hsp.广州中山大学附属第一医院

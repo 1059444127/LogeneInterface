@@ -16,6 +16,6 @@ namespace LGI.Core
         /// 从第三方获取申请单信息
         /// </summary>
         /// <returns>PIS申请单xml</returns>
-        string GetApplicationFormThirdParty(GetHisInfo info);
+        string GetApplicationFormThirdParty();
     }
 }

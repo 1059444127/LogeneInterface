@@ -3,7 +3,7 @@ namespace LGInterface
     /// <summary>
     /// PIS调用接口传入的查询参数
     /// </summary>
-    public class GetHisInfo
+    public sealed class GetHisInfo
     {
         private string _sHISName;
         private string _Sslbx;

@@ -15,49 +15,49 @@ namespace LGI.Core
         /// PIS系统登记申请单时触发该方法
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
-        void OnAddReport(T_JCXX jcxx,ReportType reportType);
+        /// <param name="reportType">常规,冰冻,补充</param>
+        void OnAddReport(T_JCXX jcxx, ReportType reportType);
 
         /// <summary>
         /// PIS修改申请单时触发
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
+        /// <param name="reportType">常规,冰冻,补充</param>
         void OnEditReport(T_JCXX jcxx, ReportType reportType);
 
         /// <summary>
         /// PIS保存报告时触发
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
+        /// <param name="reportType">常规,冰冻,补充</param>
         void OnSaveReport(T_JCXX jcxx, ReportType reportType);
 
         /// <summary>
         /// PIS审核报告时触发
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
+        /// <param name="reportType">常规,冰冻,补充</param>
         void OnCheckReport(T_JCXX jcxx, ReportType reportType);
 
         /// <summary>
         /// PIS取消审核报告时触发
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
+        /// <param name="reportType">常规,冰冻,补充</param>
         void OnCancelCheckReport(T_JCXX jcxx, ReportType reportType);
 
         /// <summary>
         /// PIS打印报告时触发
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
+        /// <param name="reportType">常规,冰冻,补充</param>
         void OnPrintReport(T_JCXX jcxx, ReportType reportType);
 
         /// <summary>
         /// PIS取消打印报告时触发
         /// </summary>
         /// <param name="jcxx"></param>
-        /// <param name="reportType"></param>
+        /// <param name="reportType">常规,冰冻,补充</param>
         void OnCancelPrintReport(T_JCXX jcxx, ReportType reportType);
 
         //void OnDelayReport();

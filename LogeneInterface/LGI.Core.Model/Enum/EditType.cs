@@ -2,6 +2,7 @@
 {
     public enum EditType
     {
-        新建, 修改
+        新建,
+        修改
     }
 }
