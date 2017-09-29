@@ -12,7 +12,7 @@ namespace LGI.Core.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class T_JCXX
+    public partial class V_QSB_SJKS
     {
         public string F_BLK { get; set; }
         public string F_BLH { get; set; }
@@ -127,21 +127,5 @@ namespace LGI.Core.Model
         public string F_YL8 { get; set; }
         public string F_YL9 { get; set; }
         public string F_YL10 { get; set; }
-        public string F_ICD10_BM1 { get; set; }
-        public string F_ICD10_MC1 { get; set; }
-        public string F_BL1 { get; set; }
-        public string F_BL2 { get; set; }
-        public string F_BL3 { get; set; }
-        public string F_BL4 { get; set; }
-        public string F_BL5 { get; set; }
-        public string F_BL6 { get; set; }
-        public string F_BL7 { get; set; }
-        public string F_BL8 { get; set; }
-        public string F_BL9 { get; set; }
-        public string F_BL10 { get; set; }
-        public string F_ICD10_BM2 { get; set; }
-        public string F_ICD10_MC2 { get; set; }
-        public string F_FBSJ { get; set; }
-        public string F_FBYS { get; set; }
     }
 }

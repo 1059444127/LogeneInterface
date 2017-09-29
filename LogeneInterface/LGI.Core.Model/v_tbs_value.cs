@@ -12,7 +12,7 @@ namespace LGI.Core.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class T_JCXX
+    public partial class v_tbs_value
     {
         public string F_BLK { get; set; }
         public string F_BLH { get; set; }
@@ -143,5 +143,7 @@ namespace LGI.Core.Model
         public string F_ICD10_MC2 { get; set; }
         public string F_FBSJ { get; set; }
         public string F_FBYS { get; set; }
+        public string F_TBS_XBXM1 { get; set; }
+        public Nullable<int> TBS_VALUE { get; set; }
     }
 }

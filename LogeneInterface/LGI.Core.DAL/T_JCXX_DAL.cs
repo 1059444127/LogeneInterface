@@ -87,7 +87,7 @@ namespace Maticsoft.DAL
                 }
                 if (row["F_AGE"] != null && row["F_AGE"].ToString() != "")
                 {
-                    model.F_AGE = decimal.Parse(row["F_AGE"].ToString());
+                    model.F_AGE = (double?) decimal.Parse(row["F_AGE"].ToString());
                 }
                 if (row["F_HY"] != null)
                 {
@@ -167,7 +167,7 @@ namespace Maticsoft.DAL
                 }
                 if (row["F_SF"] != null && row["F_SF"].ToString() != "")
                 {
-                    model.F_SF = decimal.Parse(row["F_SF"].ToString());
+                    model.F_SF = (double?) decimal.Parse(row["F_SF"].ToString());
                 }
                 if (row["F_BBMC"] != null)
                 {

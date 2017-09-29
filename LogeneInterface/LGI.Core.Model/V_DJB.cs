@@ -12,7 +12,7 @@ namespace LGI.Core.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class T_JCXX
+    public partial class V_DJB
     {
         public string F_BLK { get; set; }
         public string F_BLH { get; set; }
@@ -24,7 +24,7 @@ namespace LGI.Core.Model
         public string F_XM { get; set; }
         public string F_XB { get; set; }
         public string F_NL { get; set; }
-        public Nullable<double> F_AGE { get; set; }
+        public double F_AGE { get; set; }
         public string F_HY { get; set; }
         public string F_MZ { get; set; }
         public string F_ZY { get; set; }
@@ -44,7 +44,7 @@ namespace LGI.Core.Model
         public string F_BBLX { get; set; }
         public string F_BBQK { get; set; }
         public string F_JSYY { get; set; }
-        public Nullable<double> F_SF { get; set; }
+        public double F_SF { get; set; }
         public string F_BBMC { get; set; }
         public string F_LCZD { get; set; }
         public string F_LCZL { get; set; }
@@ -52,8 +52,8 @@ namespace LGI.Core.Model
         public string F_QCYS { get; set; }
         public string F_QCRQ { get; set; }
         public string F_JLY { get; set; }
-        public Nullable<int> F_LKZS { get; set; }
-        public Nullable<int> F_CKZS { get; set; }
+        public int F_LKZS { get; set; }
+        public int F_CKZS { get; set; }
         public string F_FY { get; set; }
         public string F_JXSJ { get; set; }
         public string F_BLZD { get; set; }
@@ -73,10 +73,10 @@ namespace LGI.Core.Model
         public string F_SFDY { get; set; }
         public string F_BGGS { get; set; }
         public string F_GDZT { get; set; }
-        public Nullable<int> F_KNHZ { get; set; }
+        public int F_KNHZ { get; set; }
         public string F_ZJYJ { get; set; }
         public string F_WYYJ { get; set; }
-        public Nullable<int> F_SFZT { get; set; }
+        public int F_SFZT { get; set; }
         public string F_SFJG { get; set; }
         public string F_JBBM_CN { get; set; }
         public string F_JBBM_ENG { get; set; }
@@ -103,7 +103,7 @@ namespace LGI.Core.Model
         public string F_ZPZT { get; set; }
         public string F_MCYJ { get; set; }
         public string F_SFJJ { get; set; }
-        public Nullable<int> F_TBSID { get; set; }
+        public int F_TBSID { get; set; }
         public string F_TBSMC { get; set; }
         public string F_QSB_DYZT { get; set; }
         public string F_BGWZ { get; set; }
@@ -115,33 +115,6 @@ namespace LGI.Core.Model
         public string F_GDCZY { get; set; }
         public string F_GDSJ { get; set; }
         public string F_GDBZ { get; set; }
-        public string F_BGLRY { get; set; }
-        public string F_FZYS { get; set; }
-        public string F_YL1 { get; set; }
-        public string F_YL2 { get; set; }
-        public string F_YL3 { get; set; }
-        public string F_YL4 { get; set; }
-        public string F_YL5 { get; set; }
-        public string F_YL6 { get; set; }
-        public string F_YL7 { get; set; }
-        public string F_YL8 { get; set; }
-        public string F_YL9 { get; set; }
-        public string F_YL10 { get; set; }
-        public string F_ICD10_BM1 { get; set; }
-        public string F_ICD10_MC1 { get; set; }
-        public string F_BL1 { get; set; }
-        public string F_BL2 { get; set; }
-        public string F_BL3 { get; set; }
-        public string F_BL4 { get; set; }
-        public string F_BL5 { get; set; }
-        public string F_BL6 { get; set; }
-        public string F_BL7 { get; set; }
-        public string F_BL8 { get; set; }
-        public string F_BL9 { get; set; }
-        public string F_BL10 { get; set; }
-        public string F_ICD10_BM2 { get; set; }
-        public string F_ICD10_MC2 { get; set; }
-        public string F_FBSJ { get; set; }
-        public string F_FBYS { get; set; }
+        public string F_BLZD1 { get; set; }
     }
 }

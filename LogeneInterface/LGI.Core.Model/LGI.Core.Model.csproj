@@ -30,8 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,12 +50,437 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="department.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="doctor.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperty.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="examrecord.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetHisInfo.cs" />
-    <Compile Include="T_JCXX.cs" />
     <Compile Include="Enum\EditType.cs" />
     <Compile Include="Enum\PisAction.cs" />
+    <Compile Include="MDM_CYC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PathnetEfContextPool.cs" />
+    <Compile Include="PisModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PisModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PisModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PisModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PisModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enum\ReportType.cs" />
+    <Compile Include="TB.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BB.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BBLC_CYC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BCBG.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BDBG.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BGFF.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BGGD.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BGHJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BG_PDF.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BG_ZLPJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BJWTC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BJW_CS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BJW_CYC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BLK_CS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CGBW_TREE.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CG_CYC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CYC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CYC_FL.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DK_CS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_FSDX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ICD10_BM.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_JCXX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_jcxx_fs.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_JHP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_JSYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_KNHZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LB_CS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LK.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LKTMSY.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LOG_YH.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_mq_log.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PATHCOM_TJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_QCMX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_QCMX_TEMP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_QC_RYSJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_QP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_QP_JGPJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_QP_YDY.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SF.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SF_JEZK.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SF_XM.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SF_XMZK.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_CKB.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_CYC.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_CYCFL.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_GYS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_KCB.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_SCCJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_WL.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SJ_WLZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SQD.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SQD_BBXX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SZQM.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TBS_BG.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TBS_SY.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TBS_XSGS_COMBO.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TBS_XSGS_LABEL.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TBS_XSGS_LINE.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TBS_XSGS_TEXT.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TJYZ_YKD.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_XBX_TREE.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_XGYJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_YH.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_YHZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BCBG_SH.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BDBG.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BDBG_bfk.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BDBG_hb.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BDBG_HFZ_BDVIEW.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BGYS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_blk.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_BM_DBM.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_brxx.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_CX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DJB.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DYTX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DZP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_HIS_BLBG.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_HIS_TX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_JSTJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_JSTJYZ2.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_LK.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_PATHCOM_TJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_PDF_TO_APP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QPGZB_JCXX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QPGZB_QCMX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP_BQDY.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP_BQDY_050525.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP_BQDY_060125.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP_TJYZ_ID.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP_YDY.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QP_YDY_BQDY.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QSB_BGYS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QSB_BQ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_QSB_SJKS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_sjks.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_SJYS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TBS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_tbsybb.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_tbs_value.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TBS_XYLTJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_tbs_yxl.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJYZ_BJW.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_BD.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_BGFF.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_BM.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_FP_XGYJ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_JCXX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_JSYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_JSYZ_BD.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_JSYZ_BD1.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_QCMX.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_QP.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_TBS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_TJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_TR.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TJ_YSGZL_TJYZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="PisModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PisModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="PisModel.edmx.diagram">
+      <DependentUpon>PisModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PisModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PisModel.edmx</DependentUpon>
+      <LastGenOutput>PisModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PisModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PisModel.edmx</DependentUpon>
+      <LastGenOutput>PisModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

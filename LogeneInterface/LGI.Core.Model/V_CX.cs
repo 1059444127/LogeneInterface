@@ -12,8 +12,37 @@ namespace LGI.Core.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class T_JCXX
+    public partial class V_CX
     {
+        public string F_TBS_JYFF { get; set; }
+        public string F_TBS_MPFX { get; set; }
+        public string F_TBS_XBXM1 { get; set; }
+        public string F_TBS_XBXM2 { get; set; }
+        public string F_TBS_XBXM3 { get; set; }
+        public string F_TBS_XBXM4 { get; set; }
+        public string F_TBS_XBXM5 { get; set; }
+        public string F_TBS_XBXM6 { get; set; }
+        public string F_TBS_WSW1 { get; set; }
+        public string F_TBS_WSW2 { get; set; }
+        public string F_TBS_WSW3 { get; set; }
+        public string F_TBS_WSW4 { get; set; }
+        public string F_TBS_WSW5 { get; set; }
+        public string F_TBS_WSW6 { get; set; }
+        public string F_TBS_BDXM1 { get; set; }
+        public string F_TBS_BDXM2 { get; set; }
+        public string F_TBS_BDXM3 { get; set; }
+        public string F_TBS_BDXM4 { get; set; }
+        public string F_TBS_BDXM5 { get; set; }
+        public string F_TBS_BDXM6 { get; set; }
+        public string F_TBS_BBMYD { get; set; }
+        public string F_TBS_YZCD { get; set; }
+        public string F_TBS_ZGBL { get; set; }
+        public string F_TBSZD { get; set; }
+        public string F_TBS_BCYJ1 { get; set; }
+        public string F_TBS_BCYJ2 { get; set; }
+        public string F_TBS_XJRQ { get; set; }
+        public string F_TBS_ZPR { get; set; }
+        public string F_TBS_XBL { get; set; }
         public string F_BLK { get; set; }
         public string F_BLH { get; set; }
         public string F_BRBH { get; set; }
@@ -127,21 +156,5 @@ namespace LGI.Core.Model
         public string F_YL8 { get; set; }
         public string F_YL9 { get; set; }
         public string F_YL10 { get; set; }
-        public string F_ICD10_BM1 { get; set; }
-        public string F_ICD10_MC1 { get; set; }
-        public string F_BL1 { get; set; }
-        public string F_BL2 { get; set; }
-        public string F_BL3 { get; set; }
-        public string F_BL4 { get; set; }
-        public string F_BL5 { get; set; }
-        public string F_BL6 { get; set; }
-        public string F_BL7 { get; set; }
-        public string F_BL8 { get; set; }
-        public string F_BL9 { get; set; }
-        public string F_BL10 { get; set; }
-        public string F_ICD10_BM2 { get; set; }
-        public string F_ICD10_MC2 { get; set; }
-        public string F_FBSJ { get; set; }
-        public string F_FBYS { get; set; }
     }
 }

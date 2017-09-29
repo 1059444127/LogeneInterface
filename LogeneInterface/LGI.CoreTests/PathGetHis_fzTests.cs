@@ -3,7 +3,9 @@ using PathGetHis_fz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using LGI.Core.Model;
 
 namespace PathGetHis_fz.Tests
 {
@@ -15,6 +17,15 @@ namespace PathGetHis_fz.Tests
         {
             string[] args = new[] { "201700003^cg^1^old^save" };
             Program.Send(args);
+        }
+
+        [TestMethod]
+        public void EfTest()
+        {
+            PathnetEntities db = PathnetEfContextPool.GetContext();
+            var lst = (from  o in db.T_JCXX
+                       orderby  o.F_BLH
+                       select o).Take(5).ToList();
         }
     }
 }
