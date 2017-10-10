@@ -27,6 +27,9 @@ namespace PathGetHis_fz.Tests
                        orderby  o.F_BLH
                        select o).Skip(10).Take(5).ToList();
             Assert.AreEqual(lst.Count,5);
+            T_JCXX jcxx = new T_JCXX();
+            db.T_JCXX.Add(jcxx);
+            db.SaveChanges();
         }
     }
 }
