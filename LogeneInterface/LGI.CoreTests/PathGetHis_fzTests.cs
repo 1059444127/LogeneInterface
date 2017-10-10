@@ -24,6 +24,7 @@ namespace PathGetHis_fz.Tests
         {
             PathnetEntities db = PathnetEfContextPool.GetContext();
             var lst = (from  o in db.T_JCXX
+                       where o.F_XM=="asd"
                        orderby  o.F_BLH
                        select o).Skip(10).Take(5).ToList();
             Assert.AreEqual(lst.Count,5);
