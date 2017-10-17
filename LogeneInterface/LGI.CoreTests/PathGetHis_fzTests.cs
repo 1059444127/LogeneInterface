@@ -22,15 +22,11 @@ namespace PathGetHis_fz.Tests
         [TestMethod]
         public void EfTest()
         {
-            PathnetEntities db = PathnetEfContextPool.GetContext();
+            PathnetEntities db = ContextPool.GetContext();
             var lst = (from  o in db.T_JCXX
-                       where o.F_XM=="asd"
                        orderby  o.F_BLH
                        select o).Skip(10).Take(5).ToList();
             Assert.AreEqual(lst.Count,5);
-            T_JCXX jcxx = new T_JCXX();
-            db.T_JCXX.Add(jcxx);
-            db.SaveChanges();
         }
     }
 }

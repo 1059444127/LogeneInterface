@@ -10,15 +10,15 @@ namespace LGI.Hsp.广西大化县人民医院
     {
         private clsPacsInterface zlInterface;
 
-        private void IniZlInterface()
+        public SendToThirdParty()
         {
-            int lngDepartmentId = -1;
-            string strServerName = "";
-            string strUserName = "";
-            string strUserPwd = "";
+            int lngDepartmentId = 0; //病理科1597
+            string strServerName = @"orcl";
+            string strUserName = "pacsuser";
+            string strUserPwd = "aqa";
             string strNullValue = "";
-            int SysNo = -1;
-            string SysOwner = "";
+            int SysNo = 100;
+            string SysOwner = "yhis";
             string SplitChar = "|";
 
             //初始化
@@ -132,7 +132,7 @@ namespace LGI.Hsp.广西大化县人民医院
             #endregion
 
             var success = zlInterface.RecevieRequest(Convert.ToInt32(jcxx.F_SQXH.Trim()), "", 1, "", 0, 0, "",
-                DateTime.Now, "病理科申请登记",
+                DateTime.Now, "",
                 0);
 
             if (!success)
@@ -155,14 +155,14 @@ namespace LGI.Hsp.广西大化县人民医院
                 jcxx.F_BGYS, jcxx.F_SHYS);
 
             if (!success)
-                throw new Exception("推送报告到HIS时出错:"+zlInterface.GetLastError());
+                throw new Exception("推送报告到HIS时出错:" + zlInterface.GetLastError());
         }
 
         private void DelReport(T_JCXX jcxx, ReportType reportType)
         {
             var success = zlInterface.DeleteReport(Convert.ToInt32(jcxx.F_SQXH.Trim()));
-            if(!success)
-                throw new Exception("删除HIS已审报告时出现错误:"+zlInterface.GetLastError());
+            if (!success)
+                throw new Exception("删除HIS已审报告时出现错误:" + zlInterface.GetLastError());
         }
     }
 }

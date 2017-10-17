@@ -153,5 +153,7 @@ namespace LGI.Core.Model
         public virtual DbSet<V_TJ_YSGZL_TJYZ> V_TJ_YSGZL_TJYZ { get; set; }
         public virtual DbSet<V_TJYZ> V_TJYZ { get; set; }
         public virtual DbSet<V_TJYZ_BJW> V_TJYZ_BJW { get; set; }
+        public virtual DbSet<T_LGI_WJZ> T_LGI_WJZ { get; set; }
+        public virtual DbSet<T_LGI_WJZ_CL> T_LGI_WJZ_CL { get; set; }
     }
 }

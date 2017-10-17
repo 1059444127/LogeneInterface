@@ -14,29 +14,30 @@ namespace LGInterface
         IniFiles f = new IniFiles("sz.ini");
         private string ConfigSection = "广西大化县人民医院";
         private clsPacsInterface zlInterface;
+        private static string _SplitChar="|";
 
 
         public LGInterface()
         {
         }
 
-        private void IniZlInterface()
+        public void IniZlInterface()
         {
-            int lngDepartmentId = -1;
-            string strServerName = "";
-            string strUserName = "";
-            string strUserPwd = "";
+            int lngDepartmentId = 0;//病理科1597
+            string strServerName = @"orcl";
+            string strUserName = "pacsuser";
+            string strUserPwd = "aqa";
             string strNullValue = "";
-            int SysNo = -1;
-            string SysOwner = "";
-            string SplitChar = "|";
+            int SysNo = 100;
+            string SysOwner = "yhis";
+            _SplitChar = "|";
 
             //初始化
             zlInterface = new clsPacsInterfaceClass();
 
             var iniSuccess = zlInterface.InitInterface(lngDepartmentId, strServerName, strUserName, strUserPwd, SysNo,
                 SysOwner,
-                strNullValue, SplitChar, TErrorShowType.estShowMsg);
+                strNullValue, _SplitChar, TErrorShowType.estShowMsg);
             if (iniSuccess == false)
             {
                 log.WriteMyLog("中联接口初始化失败!");
@@ -221,7 +222,8 @@ namespace LGInterface
                 throw new Exception("未找到HIS申请单信息");
             }
 
-            success = zlInterface.GetPatientInfo(Ssbz, TPatientWhereType.pwtPatientId);
+            var patientId = GetValue(dtResult, "病人ID");
+            success = zlInterface.GetPatientInfo(patientId, TPatientWhereType.pwtPatientId);
             if (!success)
             {
                 var err = zlInterface.GetLastError();
@@ -233,9 +235,9 @@ namespace LGInterface
                 throw new Exception("未找到HIS病人信息");
             }
 
-            lgXml.病人编号 = GetValue(dtResult, "病人id");
+            lgXml.病人编号 = GetValue(dtResult, "病人ID");
             lgXml.就诊ID = GetValue(dtResult, "门诊号");
-            lgXml.申请序号 = GetValue(dtResult, "医嘱id");
+            lgXml.申请序号 = GetValue(dtResult, "医嘱ID");
             lgXml.门诊号 = GetValue(dtResult, "门诊号");
             lgXml.住院号 = GetValue(dtResult, "住院号");
             lgXml.姓名 = GetValue(dtResult, "姓名");
@@ -279,7 +281,8 @@ namespace LGInterface
                 }
             }
 
-            return dtResult.strDatas.GetValue(index).ToString();
+            var dataStr = dtResult.strDatas.GetValue(0).ToString();
+            return dataStr.Split(new[] {_SplitChar}, StringSplitOptions.None)[index];
         }
     }
 }

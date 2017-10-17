@@ -195,18 +195,6 @@
           <Property Name="F_pdfpath" Type="nvarchar" MaxLength="200" />
           <Property Name="F_PDFLX" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'pathnet.dbo.T_BG_PDF_CA' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="T_BG_PDF_CA">
-          <Property Name="F_BLBH" Type="varchar" MaxLength="50" />
-          <Property Name="F_BLH" Type="varchar" MaxLength="50" />
-          <Property Name="F_BGLX" Type="varchar" MaxLength="50" />
-          <Property Name="F_BGXH" Type="varchar" MaxLength="50" />
-          <Property Name="F_ML" Type="varchar" MaxLength="50" />
-          <Property Name="F_FILENAME" Type="varchar" MaxLength="500" />
-          <Property Name="F_FilePath" Type="varchar" MaxLength="500" />
-          <Property Name="F_PDFLX" Type="varchar" MaxLength="500" />
-        </EntityType>-->
         <EntityType Name="T_BG_ZLPJ">
           <Key>
             <PropertyRef Name="F_ID" />
@@ -635,6 +623,32 @@ warning 6002: The table/view 'pathnet.dbo.T_BGGD' does not have a primary key de
           <Property Name="F_ISM" Type="int" />
           <Property Name="F_GJCX_PXH" Type="int" Nullable="false" />
           <Property Name="F_DKCX_PXH" Type="int" />
+        </EntityType>
+        <EntityType Name="T_LGI_WJZ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_BLH" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_LXBM" Type="varchar" MaxLength="50" />
+          <Property Name="F_LXMC" Type="varchar" MaxLength="200" />
+          <Property Name="F_SM" Type="varchar" MaxLength="500" />
+          <Property Name="F_SBRXM" Type="varchar" MaxLength="50" />
+          <Property Name="F_SHRXM" Type="varchar" MaxLength="50" />
+          <Property Name="F_SBSJ" Type="datetime" />
+          <Property Name="F_LCCLZT" Type="int" />
+          <Property Name="F_LCCLSZ" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_LGI_WJZ_CL">
+          <Key>
+            <PropertyRef Name="F_ID" />
+          </Key>
+          <Property Name="F_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_WJZ_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_BLH" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_CLKSXM" Type="varchar" MaxLength="50" />
+          <Property Name="F_CLRXM" Type="varchar" MaxLength="50" />
+          <Property Name="F_CLSJ" Type="datetime" />
         </EntityType>
         <EntityType Name="T_LK">
           <Key>
@@ -3941,6 +3955,8 @@ warning 6002: The table/view 'pathnet.dbo.V_TJYZ_BJW' does not have a primary ke
           <EntitySet Name="T_JSYZ" EntityType="Self.T_JSYZ" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_KNHZ" EntityType="Self.T_KNHZ" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_LB_CS" EntityType="Self.T_LB_CS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LGI_WJZ" EntityType="Self.T_LGI_WJZ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LGI_WJZ_CL" EntityType="Self.T_LGI_WJZ_CL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_LK" EntityType="Self.T_LK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_LKTMSY" EntityType="Self.T_LKTMSY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_LOG_YH" EntityType="Self.T_LOG_YH" Schema="dbo" store:Type="Tables" />
@@ -9753,7 +9769,35 @@ warning 6002: The table/view 'pathnet.dbo.V_TJYZ_BJW' does not have a primary ke
           <EntitySet Name="V_TJ_YSGZL_TJYZ" EntityType="Self.V_TJ_YSGZL_TJYZ" />
           <EntitySet Name="V_TJYZ" EntityType="Self.V_TJYZ" />
           <EntitySet Name="V_TJYZ_BJW" EntityType="Self.V_TJYZ_BJW" />
+          <EntitySet Name="T_LGI_WJZ" EntityType="LGI.Core.Model.T_LGI_WJZ" />
+          <EntitySet Name="T_LGI_WJZ_CL" EntityType="LGI.Core.Model.T_LGI_WJZ_CL" />
         </EntityContainer>
+        <EntityType Name="T_LGI_WJZ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_BLH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_LXBM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_LXMC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="F_SM" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="F_SBRXM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_SHRXM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_SBSJ" Type="DateTime" Precision="3" />
+          <Property Name="F_LCCLZT" Type="Int32" />
+          <Property Name="F_LCCLSZ" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_LGI_WJZ_CL">
+          <Key>
+            <PropertyRef Name="F_ID" />
+          </Key>
+          <Property Name="F_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_WJZ_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_BLH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_CLKSXM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_CLRXM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="F_CLSJ" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13251,6 +13295,34 @@ warning 6002: The table/view 'pathnet.dbo.V_TJYZ_BJW' does not have a primary ke
                 <ScalarProperty Name="Expr1" ColumnName="Expr1" />
                 <ScalarProperty Name="F_BJW_MC" ColumnName="F_BJW_MC" />
                 <ScalarProperty Name="F_JSY" ColumnName="F_JSY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LGI_WJZ">
+            <EntityTypeMapping TypeName="LGI.Core.Model.T_LGI_WJZ">
+              <MappingFragment StoreEntitySet="T_LGI_WJZ">
+                <ScalarProperty Name="F_LCCLSZ" ColumnName="F_LCCLSZ" />
+                <ScalarProperty Name="F_LCCLZT" ColumnName="F_LCCLZT" />
+                <ScalarProperty Name="F_SBSJ" ColumnName="F_SBSJ" />
+                <ScalarProperty Name="F_SHRXM" ColumnName="F_SHRXM" />
+                <ScalarProperty Name="F_SBRXM" ColumnName="F_SBRXM" />
+                <ScalarProperty Name="F_SM" ColumnName="F_SM" />
+                <ScalarProperty Name="F_LXMC" ColumnName="F_LXMC" />
+                <ScalarProperty Name="F_LXBM" ColumnName="F_LXBM" />
+                <ScalarProperty Name="F_BLH" ColumnName="F_BLH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LGI_WJZ_CL">
+            <EntityTypeMapping TypeName="LGI.Core.Model.T_LGI_WJZ_CL">
+              <MappingFragment StoreEntitySet="T_LGI_WJZ_CL">
+                <ScalarProperty Name="F_CLSJ" ColumnName="F_CLSJ" />
+                <ScalarProperty Name="F_CLRXM" ColumnName="F_CLRXM" />
+                <ScalarProperty Name="F_CLKSXM" ColumnName="F_CLKSXM" />
+                <ScalarProperty Name="F_BLH" ColumnName="F_BLH" />
+                <ScalarProperty Name="F_WJZ_ID" ColumnName="F_WJZ_ID" />
+                <ScalarProperty Name="F_ID" ColumnName="F_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataEntityExtend\T_JCXX.cs" />
+    <Compile Include="DataEntityExtend\T_LGI_WJZ.cs" />
     <Compile Include="department.cs">
       <DependentUpon>PisModel.tt</DependentUpon>
     </Compile>
@@ -62,13 +64,13 @@
     <Compile Include="examrecord.cs">
       <DependentUpon>PisModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="GetHisInfo.cs" />
+    <Compile Include="GetHisRequest.cs" />
     <Compile Include="Enum\EditType.cs" />
     <Compile Include="Enum\PisAction.cs" />
     <Compile Include="MDM_CYC.cs">
       <DependentUpon>PisModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PathnetEfContextPool.cs" />
+    <Compile Include="ContextPool.cs" />
     <Compile Include="PisModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +167,12 @@
       <DependentUpon>PisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="T_LB_CS.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LGI_WJZ.cs">
+      <DependentUpon>PisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LGI_WJZ_CL.cs">
       <DependentUpon>PisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="T_LK.cs">
@@ -484,7 +492,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LGI.Core.Utils\LGI.Core.Utils.csproj">
-      <Project>{E0F1EA7B-B20F-479C-B81A-C017BB522DC7}</Project>
+      <Project>{e0f1ea7b-b20f-479c-b81a-c017bb522dc7}</Project>
       <Name>LGI.Core.Utils</Name>
     </ProjectReference>
   </ItemGroup>
