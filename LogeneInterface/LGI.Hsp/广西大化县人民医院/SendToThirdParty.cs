@@ -28,7 +28,7 @@ namespace LGI.Hsp.广西大化县人民医院
                 SysOwner,
                 strNullValue, SplitChar, TErrorShowType.estShowMsg);
             if (iniSuccess == false)
-                throw new Exception("中联接口初始化失败");
+                throw new Exception("中联接口初始化失败:"+zlInterface.GetLastError());
         }
 
         #region Implementation of ISendToThirdParty
@@ -131,12 +131,15 @@ namespace LGI.Hsp.广西大化县人民医院
 
             #endregion
 
-            var success = zlInterface.RecevieRequest(Convert.ToInt32(jcxx.F_SQXH.Trim()), "", 1, "", 0, 0, "",
-                DateTime.Now, "",
-                0);
+            int yzId = Convert.ToInt32(jcxx.F_YZID.Trim());
+            var success = zlInterface.RecevieRequest(yzId);
 
             if (!success)
-                throw new Exception("向HIS回发报告状态时出现错误:" + zlInterface.GetLastError());
+            {
+                var lastErr = zlInterface.GetLastError();
+                throw new Exception($"向HIS回发报告状态时出现错误[{jcxx.F_BLH}]:" + lastErr);
+            }
+            Logger.Info("HIS接口确认申请单成功:"+jcxx.F_BLH);
         }
 
         private void SendReport(T_JCXX jcxx, ReportType reportType)
@@ -151,18 +154,22 @@ namespace LGI.Hsp.广西大化县人民医院
 
             #endregion
 
-            var success = zlInterface.SendReport(Convert.ToInt32(jcxx.F_SQXH.Trim()), jcxx.F_JXSJ, jcxx.F_BLZD,
-                jcxx.F_BGYS, jcxx.F_SHYS);
+            var success = zlInterface.SendReport(Convert.ToInt32(jcxx.F_YZID.Trim()), jcxx.F_JXSJ, jcxx.F_BLZD,
+                jcxx.F_BGYS);
 
             if (!success)
-                throw new Exception("推送报告到HIS时出错:" + zlInterface.GetLastError());
+                throw new Exception($"推送报告到HIS时出错[{jcxx.F_BLH}]:" + zlInterface.GetLastError());
+
+            Logger.Info("HIS接口回传报告成功:" + jcxx.F_BLH);
         }
 
         private void DelReport(T_JCXX jcxx, ReportType reportType)
         {
-            var success = zlInterface.DeleteReport(Convert.ToInt32(jcxx.F_SQXH.Trim()));
+            var success = zlInterface.DeleteReport(Convert.ToInt32(jcxx.F_YZID.Trim()));
             if (!success)
-                throw new Exception("删除HIS已审报告时出现错误:" + zlInterface.GetLastError());
+                throw new Exception($"删除HIS已审报告时出现错误[{jcxx.F_BLH}]:" + zlInterface.GetLastError());
+
+            Logger.Info("HIS接口删除报告成功:" + jcxx.F_BLH);
         }
     }
 }

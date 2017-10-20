@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LGInterface</RootNamespace>
-    <AssemblyName>广西大化县人民医院LGInterface</AssemblyName>
+    <AssemblyName>LGInterface</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -103,9 +103,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="zlPacsInterface">
-      <Guid>{EB5A76FB-EF9C-4C53-A9D9-8712805CCDA0}</Guid>
+      <Guid>{23E481D4-9DED-4402-9720-3B769E1DC811}</Guid>
       <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
+      <VersionMinor>1</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>

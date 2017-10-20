@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using dbbase;
@@ -13,6 +14,7 @@ namespace LogenePisLogin
     public partial class Form1 : Form
     {
         private DataTable _dtYh=null;
+        private List<Yh> lstYh = new List<Yh>(); 
 
         public Form1()
         {
@@ -20,6 +22,7 @@ namespace LogenePisLogin
 
             txtUid.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtUid.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,8 +40,12 @@ namespace LogenePisLogin
             foreach (DataRow row in _dtYh.Rows)
             {
                 col.Add(row["f_yhm"].ToString());
+
+                lstYh.Add(Yh.FromRow(row));
             }
             txtUid.AutoCompleteCustomSource = col;
+            
+            comboBox1.Items.AddRange(lstYh.ToArray());
         }
 
         private DataTable GetYh()
@@ -50,6 +57,13 @@ namespace LogenePisLogin
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //检查主程序exe是否存在
+            if (File.Exists($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\PATHNetRPT.exe") == false)
+            {
+                MessageBox.Show("没有找到PATHNetRPT.exe,无法启动程序,请将登陆程序放在Pathqc根目录下!");
+                return;
+            }
+
             var uid = txtUid.Text.Trim();
             var pwd = txtPwd.Text.Trim();
 
@@ -79,8 +93,14 @@ namespace LogenePisLogin
             }
 
             //验证成功,打开PIS
-            Process.Start($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\PATHNetRPT.exe",$"{uid}^{pwd}");
-
+            try
+            {
+                Process.Start($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\PATHNetRPT.exe",$"{uid}^{pwd}");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("尝试启动PATHNetRPT.exe时出现错误:" + e);
+            }
         }
 
         private void txtUid_KeyDown(object sender, KeyEventArgs e)
@@ -93,6 +113,38 @@ namespace LogenePisLogin
         {
             if (e.KeyCode == Keys.Enter)
                 btnLogin_Click(null, null);
+        }
+
+        public class Yh
+        {
+            public string Yhm { get; set; }
+            public string Yhmm { get; set; }
+            public string Yhmc { get; set; }
+
+            public static Yh FromRow(DataRow dr)
+            {
+                Yh yh = new Yh();
+                yh.Yhm = dr["f_yhm"].ToString();
+                yh.Yhmc = dr["f_yhmc"].ToString();
+                yh.Yhmm = dr["f_yhmm"].ToString();
+
+                return yh;
+            }
+
+            #region Overrides of Object
+
+            /// <summary>
+            /// Returns a string that represents the current object.
+            /// </summary>
+            /// <returns>
+            /// A string that represents the current object.
+            /// </returns>
+            public override string ToString()
+            {
+                return this.Yhmc + "  |  " + Yhm;
+            }
+
+            #endregion
         }
     }
 }

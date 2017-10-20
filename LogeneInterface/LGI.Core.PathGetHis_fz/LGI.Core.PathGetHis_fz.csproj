@@ -7,13 +7,13 @@
     <ProjectGuid>{6479B112-C66A-49D5-8BF8-20DE583408AE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PathGetHis_fz</RootNamespace>
-    <AssemblyName>PathGetHis_fz</AssemblyName>
+    <RootNamespace>PathHisJk_fz</RootNamespace>
+    <AssemblyName>PathHisJk_fz</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using LGI.Core.Model;
+using PathHisJk_fz;
 
 namespace PathGetHis_fz.Tests
 {

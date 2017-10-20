@@ -12,7 +12,7 @@ namespace LGI.Core.Utils
             {
                 //判断日志级别
                 IniFiles inifile = new IniFiles("sz_log.ini");
-                var strLoglevel = inifile.ReadString("日志", "日志级别", "一般");
+                var strLoglevel = inifile.ReadString("日志", "日志级别", "调试");
                 logLevelSetting = (LogLevel) Enum.Parse(typeof (LogLevel), strLoglevel);
             }
             catch (Exception e)
@@ -101,7 +101,7 @@ namespace LGI.Core.Utils
 
         public static void Debug(string message)
         {
-            WriteMyLog(message, LogLevel.调试信息);
+            WriteMyLog(message, LogLevel.调试);
         }
 
         public static void Info(string message)
@@ -117,9 +117,9 @@ namespace LGI.Core.Utils
 
         public enum LogLevel
         {
-            调试信息 = 9,
-            一般 = 3,
-            异常 = 0
+            调试 = 9,
+            一般 = 0,
+            异常 = 5
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Data;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using dbbase;
 using LGInterface.Util;
 using SendPisResult;
 using zlPacsInterface;
@@ -38,10 +39,11 @@ namespace LGInterface
             var iniSuccess = zlInterface.InitInterface(lngDepartmentId, strServerName, strUserName, strUserPwd, SysNo,
                 SysOwner,
                 strNullValue, _SplitChar, TErrorShowType.estShowMsg);
+            var err = zlInterface.GetLastError();
             if (iniSuccess == false)
             {
-                log.WriteMyLog("中联接口初始化失败!");
-                throw new Exception("中联接口初始化失败");
+                log.WriteMyLog("中联接口初始化失败!"+err);
+                throw new Exception("中联接口初始化失败:"+err);
             }
         }
 
@@ -77,11 +79,14 @@ namespace LGInterface
                 MessageBox.Show("中联接口初始化失败");
                 return "0";
             }
-            
+
             if (Sslbx != "删除病例")
                 return GetHisReq(Sslbx, Ssbz);
             else
-                return CancelHisReq(Ssbz);
+            {
+                CancelHisReq(Ssbz);
+                return "0";
+            }
         }
 
 
@@ -143,7 +148,7 @@ namespace LGInterface
                 xml = xml + "<row ";
                 xml = xml + "病人编号=" + (char) 34 + lgXml.病人编号 + (char) 34 + " ";
                 xml = xml + "就诊ID=" + (char) 34 + lgXml.就诊ID + (char) 34 + " ";
-                xml = xml + "申请序号=" + (char) 34 + lgXml.申请序号 + (char) 34 + " ";
+                xml = xml + "申请序号=" + (char) 34 + Ssbz + (char) 34 + " ";
                 xml = xml + "门诊号=" + (char) 34 + lgXml.门诊号 + (char) 34 + " ";
                 xml = xml + "住院号=" + (char) 34 + lgXml.住院号 + (char) 34 + " ";
                 xml = xml + "姓名=" + (char) 34 + lgXml.姓名 + (char) 34 + " ";
@@ -190,15 +195,20 @@ namespace LGInterface
             return xml;
         }
 
-        private string CancelHisReq(string ssbz)
+        private void CancelHisReq(string ssbz)
         {
-            var success = zlInterface.CancelRequest(Convert.ToInt32(ssbz), 0);
+            dbbase.odbcdb aa = new odbcdb("DSN=pathnet;UID=pathnet;PWD=4s3c2a1p", "", "");
+            var dtJcxx = aa.GetDataTable($"select f_yzid from t_jcxx where f_sqxh= '{ssbz}'", "t1");
+            if (dtJcxx == null)
+                return;
+
+            var yzId = dtJcxx.Rows[0][0].ToString();
+
+            var success = zlInterface.CancelRequest(Convert.ToInt32(yzId), 0);
             if (!success)
             {
                 log.WriteMyLog("HIS取消登记申请单失败:" + zlInterface.GetLastError());
-                return "0";
             }
-            return "1";
         }
 
         private LgXml GetHisReqXml(string Ssbz, string sslbx)
@@ -210,7 +220,26 @@ namespace LGInterface
 
             TRequestWhereType queryType = TRequestWhereType.rwtInHospital;
 
-            var success = zlInterface.GetRequestInfo(Ssbz, queryType);
+            var success = false;
+            //查询所有类型的号码
+            foreach (TRequestWhereType ev in Enum.GetValues(typeof(TRequestWhereType)))
+            {
+                success = zlInterface.GetRequestInfo(Ssbz, ev);
+
+                //如果success但是返回的数据集为空,也算失败\
+                if (zlInterface.Tables.strDatas == null || zlInterface.Tables.strDatas.Length == 0)
+                    success = false;
+
+                if (success)
+                {
+                    log.WriteMyLog("获取病人成功,病人类型:"+ev);
+                    break;
+                }
+            }
+//            var success = zlInterface.GetRequestInfo(Ssbz, queryType);
+//            if (!success)
+//                success = zlInterface.GetRequestInfo(Ssbz, TRequestWhereType.rwtOutPatient);
+
             if (!success)
             {
                 var err = zlInterface.GetLastError();
@@ -223,6 +252,7 @@ namespace LGInterface
             }
 
             var patientId = GetValue(dtResult, "病人ID");
+            log.WriteMyLog("通过申请单得到的病人ID为:"+patientId);
             success = zlInterface.GetPatientInfo(patientId, TPatientWhereType.pwtPatientId);
             if (!success)
             {
@@ -236,8 +266,9 @@ namespace LGInterface
             }
 
             lgXml.病人编号 = GetValue(dtResult, "病人ID");
-            lgXml.就诊ID = GetValue(dtResult, "门诊号");
-            lgXml.申请序号 = GetValue(dtResult, "医嘱ID");
+            lgXml.就诊ID = GetValue(dtResult, "医嘱ID");
+            //申请序号取ssbz
+            //lgXml.申请序号 = GetValue(dtResult, "医嘱ID");
             lgXml.门诊号 = GetValue(dtResult, "门诊号");
             lgXml.住院号 = GetValue(dtResult, "住院号");
             lgXml.姓名 = GetValue(dtResult, "姓名");

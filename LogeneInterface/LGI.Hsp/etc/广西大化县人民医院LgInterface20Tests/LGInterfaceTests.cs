@@ -23,7 +23,7 @@ namespace LGInterface.Tests
         {
             LGInterface tt = new LGInterface();
             tt.IniZlInterface();
-            var xml = tt.LGGetHISINFO("", "住院", "201723397", "1", "1");
+            var xml = tt.LGGetHISINFO("", "住院", "201700013", "1", "1");
         }
 
         [TestMethod()]

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PathGetHis_fz.Properties {
+namespace PathHisJk_fz.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

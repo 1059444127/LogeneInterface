@@ -5,7 +5,7 @@ using LGI.Core.Model;
 using LGI.Core.Utils;
 using Maticsoft.DAL;
 
-namespace PathGetHis_fz
+namespace PathHisJk_fz
 {
     public static class Program
     {
@@ -15,7 +15,22 @@ namespace PathGetHis_fz
         [STAThread]
         static void Main(string[] args)
         {
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
             Send(args);
+        }
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(e.ToString() + e.ExceptionObject?.ToString());
+            Logger.Error("复杂接口异常:"+ e.ToString() + e.ExceptionObject?.ToString());
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.ToString() + e.Exception?.ToString());
+            Logger.Error("复杂接口异常:" + e.ToString() + e.Exception?.ToString());
         }
 
         public static void Send(string[] args)
@@ -102,6 +117,9 @@ namespace PathGetHis_fz
 
             Logger.Debug("尝试获取接口实例,医院名称:" + hospName);
             var sender = Factory.GetSendToThirdPartyByHisName(hospName);
+
+            if(sender==null)
+                Logger.Error("获取接口实例失败!");
 
             Logger.Info($"开始调用EXE接口,病理号:{blh},操作类型:{pisAction}");
             switch (pisAction)
