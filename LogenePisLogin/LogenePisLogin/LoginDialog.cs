@@ -64,9 +64,9 @@ namespace LogenePisLogin
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //检查主程序exe是否存在
-            if (File.Exists($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\PATHNetRPT.exe") == false)
+            if (File.Exists($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\{Program.ExeName}.exe") == false)
             {
-                MessageBox.Show("没有找到PATHNetRPT.exe,无法启动程序,请将登陆程序放在Pathqc根目录下!");
+                MessageBox.Show($"没有找到{Program.ExeName}.exe,无法启动程序,请将登陆程序放在Pathqc根目录下!");
                 return;
             }
             var uid = cmbYhm.EditValue?.ToString();
