@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="LogeneWebReport.Global_asax" Language="C#" %>

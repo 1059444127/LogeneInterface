@@ -19,6 +19,7 @@ namespace LogenePisLogin
         {
             if (args.Length > 0)
                 ExeName = args[0];
+
             ExeName = ExeName.ToLower().Replace(".exe", "");
 
             Application.EnableVisualStyles();

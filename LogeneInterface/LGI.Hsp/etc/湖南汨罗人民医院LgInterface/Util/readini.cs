@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using dbbase;
 
-namespace LGI.Core.Utils
+namespace SendPisResult
 {
     /**/
     /**/
@@ -17,6 +17,7 @@ namespace LGI.Core.Utils
     {
 #if !DEBUG
         public dbbase.odbcdb aa = new odbcdb("DSN=pathnet;UID=pathnet;PWD=4s3c2a1p", "", "");
+
 #endif
 
         public string FileName; //INI文件名
@@ -26,14 +27,15 @@ namespace LGI.Core.Utils
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section, string key, string def, byte[] retVal, int size, string filePath);
         //类的构造函数，传递INI文件名
-        public IniFiles(string aFileName="sz.ini")
+        public IniFiles(string AFileName)
         {
             // 判断文件是否存在
-            FileInfo fileInfo = new FileInfo(aFileName);
+            FileInfo fileInfo = new FileInfo(AFileName);
+            //Todo:搞清枚举的用法
             if ((!fileInfo.Exists))
             { //|| (FileAttributes.Directory in fileInfo.Attributes))
                 //文件不存在，建立文件
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(aFileName, false, System.Text.Encoding.Default);
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(AFileName, false, System.Text.Encoding.Default);
                 try
                 {
                     sw.Write("#表格配置档案");

@@ -57,7 +57,7 @@ namespace LogenePisLogin
         private DataTable GetYh()
         {
             dbbase.odbcdb aa = new odbcdb("DSN=pathnet;UID=pathnet;PWD=4s3c2a1p", "", "");
-            string sql = "select f_yhm,f_yhmc,F_ID,f_yhmm from t_yh order by F_ID";
+            string sql = "select f_yhm,f_yhmc,F_ID,f_yhmm,f_yhbh from t_yh order by F_ID";
             return aa.GetDataTable(sql, "yh");
         }
 
@@ -100,12 +100,12 @@ namespace LogenePisLogin
             //验证成功,打开PIS
             try
             {
-                Process.Start($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\PATHNetRPT.exe",
+                Process.Start($"{AppDomain.CurrentDomain.SetupInformation.ApplicationBase}\\{Program.ExeName}.exe",
                     $"{uid},{pwd}");
             }
             catch (Exception exception)
             {
-                MessageBox.Show("尝试启动PATHNetRPT.exe时出现错误:" + e);
+                MessageBox.Show($"尝试启动{Program.ExeName}.exe时出现错误:" + e);
             }
             finally
             {

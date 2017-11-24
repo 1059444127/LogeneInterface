@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -50,6 +52,14 @@
     <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v16.2.Web, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -69,17 +79,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EbvLineReport.aspx" />
+    <Content Include="EBVLineReport.aspx" />
     <Content Include="LineReportDemo.aspx" />
+    <Content Include="NotDataFound.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EbvLineReport.aspx.cs">
-      <DependentUpon>EbvLineReport.aspx</DependentUpon>
+    <Compile Include="EBVLineReport.aspx.cs">
+      <DependentUpon>EBVLineReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EbvLineReport.aspx.designer.cs">
-      <DependentUpon>EbvLineReport.aspx</DependentUpon>
+    <Compile Include="EBVLineReport.aspx.designer.cs">
+      <DependentUpon>EBVLineReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="LineReportDemo.aspx.cs">
       <DependentUpon>LineReportDemo.aspx</DependentUpon>
@@ -88,9 +99,18 @@
     <Compile Include="LineReportDemo.aspx.designer.cs">
       <DependentUpon>LineReportDemo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NotDataFound.aspx.cs">
+      <DependentUpon>NotDataFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotDataFound.aspx.designer.cs">
+      <DependentUpon>NotDataFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,6 +120,20 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LGI.Core.DAL\LGI.Core.DAL.csproj">
+      <Project>{74c6228d-f9e8-42d0-b02e-489f577be2b6}</Project>
+      <Name>LGI.Core.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LGI.Core.Model\LGI.Core.Model.csproj">
+      <Project>{4c3a3ae4-3b9a-41a7-9363-84298f53e0e2}</Project>
+      <Name>LGI.Core.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LGI.Core.Utils\LGI.Core.Utils.csproj">
+      <Project>{e0f1ea7b-b20f-479c-b81a-c017bb522dc7}</Project>
+      <Name>LGI.Core.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

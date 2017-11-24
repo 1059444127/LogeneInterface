@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
+using System.Net.Mime;
 using LGI.Core.Utils;
 
 namespace LGI.Core.Model
@@ -13,7 +14,12 @@ namespace LGI.Core.Model
         {
             if (_db == null)
             {
-                _db = PathnetEntities.ConnectToSqlServer("LDYXPS15", "pathnet", "pathnet", "4s3c2a1p", false);
+                IniFiles f =new IniFiles(AppDomain.CurrentDomain.SetupInformation.ApplicationBase+"\\sz.ini");
+                var host = f.ReadString("sqlserver", "host", "localhost");
+                var uid = f.ReadString("sqlserver", "user", "pathnet");
+                var pwd = f.ReadString("sqlserver", "password", "4s3c2a1p");
+
+                _db = PathnetEntities.ConnectToSqlServer(host, "pathnet", uid, pwd, false);
                 //   _db.Database.Connection.ConnectionString = "Data Source=LDYXPS15;Initial Catalog=pathnet;User ID=pathnet;Password=4s3c2a1p";
             }
 

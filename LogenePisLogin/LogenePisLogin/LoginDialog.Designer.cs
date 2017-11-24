@@ -41,6 +41,7 @@
             this.colYhm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colYhmc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPYM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colYhbh = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtPwd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbYhm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yhBindingSource)).BeginInit();
@@ -49,13 +50,13 @@
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(77, 49);
-            this.txtPwd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtPwd.Location = new System.Drawing.Point(192, 124);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.txtPwd.Properties.Appearance.Options.UseFont = true;
             this.txtPwd.Properties.PasswordChar = '*';
-            this.txtPwd.Size = new System.Drawing.Size(152, 24);
+            this.txtPwd.Size = new System.Drawing.Size(380, 48);
             this.txtPwd.TabIndex = 2;
             this.txtPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPwd_KeyDown);
             // 
@@ -63,10 +64,10 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(22, 14);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.labelControl1.Location = new System.Drawing.Point(55, 36);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(47, 17);
+            this.labelControl1.Size = new System.Drawing.Size(117, 42);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "用户名:";
             // 
@@ -74,10 +75,10 @@
             // 
             this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.btnLogin.Appearance.Options.UseFont = true;
-            this.btnLogin.Location = new System.Drawing.Point(34, 85);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnLogin.Location = new System.Drawing.Point(85, 216);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(81, 29);
+            this.btnLogin.Size = new System.Drawing.Size(202, 74);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "登录";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -86,10 +87,10 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Location = new System.Drawing.Point(139, 85);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnCancel.Location = new System.Drawing.Point(348, 216);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(81, 29);
+            this.btnCancel.Size = new System.Drawing.Size(202, 74);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "退出";
@@ -99,18 +100,18 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(22, 50);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.labelControl2.Location = new System.Drawing.Point(55, 127);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(41, 17);
+            this.labelControl2.Size = new System.Drawing.Size(104, 42);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "密  码:";
             // 
             // cmbYhm
             // 
             this.cmbYhm.EditValue = "";
-            this.cmbYhm.Location = new System.Drawing.Point(77, 13);
-            this.cmbYhm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cmbYhm.Location = new System.Drawing.Point(192, 33);
+            this.cmbYhm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbYhm.Name = "cmbYhm";
             this.cmbYhm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.cmbYhm.Properties.Appearance.Options.UseFont = true;
@@ -125,7 +126,7 @@
             this.cmbYhm.Properties.ShowFooter = false;
             this.cmbYhm.Properties.ValueMember = "Yhm";
             this.cmbYhm.Properties.View = this.searchLookUpEdit1View;
-            this.cmbYhm.Size = new System.Drawing.Size(152, 24);
+            this.cmbYhm.Size = new System.Drawing.Size(380, 48);
             this.cmbYhm.TabIndex = 1;
             this.cmbYhm.Popup += new System.EventHandler(this.clkOuterItem_Popup);
             this.cmbYhm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUid_KeyDown);
@@ -139,6 +140,7 @@
             this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colYhm,
+            this.colYhbh,
             this.colYhmc,
             this.colPYM});
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
@@ -182,11 +184,18 @@
             this.colPYM.Visible = true;
             this.colPYM.VisibleIndex = 3;
             // 
+            // colYhbh
+            // 
+            this.colYhbh.FieldName = "Yhbh";
+            this.colYhbh.Name = "colYhbh";
+            this.colYhbh.Visible = true;
+            this.colYhbh.VisibleIndex = 4;
+            // 
             // LoginDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 122);
+            this.ClientSize = new System.Drawing.Size(630, 310);
             this.Controls.Add(this.cmbYhm);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -194,7 +203,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txtPwd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginDialog";
@@ -223,5 +232,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colYhm;
         private DevExpress.XtraGrid.Columns.GridColumn colYhmc;
         private DevExpress.XtraGrid.Columns.GridColumn colPYM;
+        private DevExpress.XtraGrid.Columns.GridColumn colYhbh;
     }
 }

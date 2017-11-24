@@ -40,6 +40,8 @@ namespace LogenePisLogin
             public string Yhmc { get; set; }
             [DisplayName("拼音码")]
             public string PYM { get; set; }
+            [DisplayName("HIS工号")]
+            public string Yhbh { get; set; }
 
 
             public static Yh FromRow(DataRow dr)
@@ -50,6 +52,7 @@ namespace LogenePisLogin
                 yh.Yhmm = dr["f_yhmm"].ToString();
                 yh.PYM = GetSpellCode(yh.Yhmc);
                 yh.Id = dr["F_ID"].ToString();
+                yh.Yhbh = dr["F_yhbh"].ToString();
                 return yh;
             }
 
