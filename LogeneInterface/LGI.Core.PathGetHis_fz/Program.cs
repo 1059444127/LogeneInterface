@@ -121,7 +121,7 @@ namespace PathHisJk_fz
             if(sender==null)
                 Logger.Error("获取接口实例失败!");
 
-            Logger.Info($"开始调用EXE接口,病理号:{blh},操作类型:{pisAction}");
+            Logger.Info($"开始调用EXE接口,病理号:{blh},操作类型:{pisAction},报告状态:{jcxx.F_BGZT}");
             switch (pisAction)
             {
                 case PisAction.新登记:
