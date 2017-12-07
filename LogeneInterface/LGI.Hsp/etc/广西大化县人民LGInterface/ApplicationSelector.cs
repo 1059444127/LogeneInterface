@@ -40,15 +40,6 @@ namespace LGInterface
             }
             else
             {
-                Table.Columns.Add("sortDateTime", typeof (DateTime));
-                foreach (DataRow row in Table.Rows)
-                {
-                    row["sortDateTime"] = Convert.ToDateTime(row["DOCTORCHARGESTIME"]);
-                }
-
-             //   var rowSorted = (from  o in rows select o where )
-                Table.DefaultView.RowFilter = " EXAMINETYPE='病理' ";
-                Table.DefaultView.Sort = " sortDateTime desc,exid ";
                 dataGridView1.DataSource = Table.DefaultView.ToTable();
                 dataGridView1.AutoResizeColumns();
             }

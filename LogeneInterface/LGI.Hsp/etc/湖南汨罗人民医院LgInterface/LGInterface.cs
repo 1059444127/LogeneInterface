@@ -269,8 +269,39 @@ namespace LGInterface
                 throw new Exception("未找到HIS病人信息");
             }
 
+            var yzid = GetValue(dtResult, "医嘱ID");
+            var yznr = GetValue(dtResult, "医嘱内容");
+
+            //一个申请单包含多个医嘱时,弹出窗口让用户选择医嘱
+            if (dtResult.strDatas.Length > 1)
+            {
+                ApplicationSelector f = new ApplicationSelector();
+                DataTable dtYz = new DataTable();
+                dtYz.Columns.Add("医嘱ID");
+                dtYz.Columns.Add("医嘱内容");
+
+                for (int i = 0; i < dtResult.strDatas.Length; i++)
+                {
+                    var dr = dtYz.NewRow();
+                    dtYz.Rows.Add(dr);
+                    dr["医嘱ID"] = GetValue(dtResult, "医嘱ID", i);
+                    dr["医嘱内容"] = GetValue(dtResult, "医嘱内容", i);
+                }
+                f.Table = dtYz;
+                f.ItemSelected += row =>
+                {
+                    if (row != null)
+                    {
+                        yzid = row["医嘱ID"].ToString();
+                        yznr = row["医嘱内容"].ToString();
+                    }
+                };
+                var r = f.ShowDialog();
+            }
+
+
             lgXml.病人编号 = GetValue(dtResult, "病人ID");
-            lgXml.就诊ID = GetValue(dtResult, "医嘱ID");
+            lgXml.就诊ID = yzid;
             //申请序号取ssbz
             //lgXml.申请序号 = GetValue(dtResult, "医嘱ID");
             lgXml.门诊号 = GetValue(dtResult, "门诊号");
@@ -292,7 +323,7 @@ namespace LGInterface
             //todo:标本名称可能要取 2.4.7.	GetAdviceItems
             //lgXml.标本名称 = GetValue(dtResult, "病人id");
             //lgXml.送检医院 = GetValue(dtResult, "病人id");
-            lgXml.医嘱项目 = GetValue(dtResult, "医嘱内容");
+            lgXml.医嘱项目 = yznr;
             //lgXml.备用1 = GetValue(dtResult, "病人id");
             //lgXml.备用2 = GetValue(dtResult, "病人id");
             //lgXml.费别 = GetValue(dtResult, "病人id");
@@ -303,7 +334,7 @@ namespace LGInterface
             return lgXml;
         }
 
-        public static string GetValue(TCusTable dtResult, string colName)
+        public static string GetValue(TCusTable dtResult, string colName, int rowIndex = 0)
         {
             int index = -1;
             for (int i = 0; i < dtResult.strColumns.Length; i++)
@@ -316,8 +347,8 @@ namespace LGInterface
                 }
             }
 
-            var dataStr = dtResult.strDatas.GetValue(0).ToString();
-            return dataStr.Split(new[] {_SplitChar}, StringSplitOptions.None)[index];
+            var dataStr = dtResult.strDatas.GetValue(rowIndex).ToString();
+            return dataStr.Split(new[] { _SplitChar }, StringSplitOptions.None)[index];
         }
     }
 }
